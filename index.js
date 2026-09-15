@@ -15,32 +15,7 @@ mongoose
   })
   .catch((err) => console.log("Error", err));
 
-const userSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
 
-  lastName: {
-    type: String,
-  },
-
-  email: {
-    required: true,
-    type: String,
-    unique: true,
-  },
-
-  jobTitle: {
-    type: String,
-  },
-
-  gender: {
-    type: String,
-  },
-});
-
-const User = mongoose.model("users", userSchema);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
