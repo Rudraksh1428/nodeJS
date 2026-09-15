@@ -4,19 +4,14 @@ const users = require("./MOCK_DATA.json");
 
 const app = express();
 
-const mongoose = require("mongoose");
 
 const PORT = 8000;
 
+const {connectMongoDB} = require('./connection')
 
 const userRouter = require("./routes/user")
-mongoose
-  .connect("mongodb://127.0.0.1:27017/learn")
-  .then(() => {
-    console.log("mongoDB is connected");
-  })
-  .catch((err) => console.log("Error", err));
 
+connectMongoDB = ("mongodb://127.0.0.1:27017/learn")
 
 
 app.use(express.urlencoded({ extended: false }));
