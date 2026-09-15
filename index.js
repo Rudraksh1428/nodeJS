@@ -1,6 +1,6 @@
 const express = require("express");
 
-const users = require("./MOCK_DATA.json");
+const{logReqRes} = require("./middlewares")
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use("/user", userRouter);
-
+app.use(logReqRes)
 app.listen(PORT, () => {
   console.log("Server is running");
 });
